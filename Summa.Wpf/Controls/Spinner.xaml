@@ -15,11 +15,13 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <Button Content="5"
+        <Button Name="UpButton"
+                Content="5"
                 FontFamily="Marlett"
                 Grid.Column="0"/>
 
-        <Button Content="6"
+        <Button Name="DownButton"
+                Content="6"
                 FontFamily="Marlett"
                 Grid.Column="1"/>
 
