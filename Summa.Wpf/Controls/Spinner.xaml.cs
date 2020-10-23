@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Windows;
 using System.Windows.Controls;
 
 namespace Summa.Wpf
@@ -10,18 +10,70 @@ namespace Summa.Wpf
     public partial class Spinner : UserControl
     {
 
+        #region Routed events
+
+        /// <summary>
+        /// Defines the <see cref="Spin"/> routed event.
+        /// </summary>
+        public static readonly RoutedEvent SpinEvent =
+            EventManager.RegisterRoutedEvent(nameof(Spin), RoutingStrategy.Bubble, typeof(SpinEventHandler), typeof(Spinner));
+
+        #endregion
+
         #region Events
 
         /// <summary>
-        /// Fired when the spinner is spinned.
+        /// Fired each time the spinner spins.
         /// </summary>
-        public event EventHandler<SpinEventArgs> Spin;
+        public event SpinEventHandler Spin
+        {
+            add
+            {
+                AddHandler(SpinEvent, value);
+            }
+            remove
+            {
+                RemoveHandler(SpinEvent, value);
+            }
+        }
+
+        #endregion
+
+        #region Dependency properties
+
+        /// <summary>
+        /// Defines the <see cref="UpRepeatButtonStyle"/> dependency property.
+        /// </summary>
+        public static readonly DependencyProperty UpRepeatButtonStyleProperty =
+            DependencyProperty.Register(nameof(UpRepeatButtonStyle), typeof(Style), typeof(Spinner), new PropertyMetadata(null, OnUpButtonStyleChanged));
+
+        /// <summary>
+        /// Defines the <see cref="DownRepeatButtonStyle"/> dependency property.
+        /// </summary>
+        public static readonly DependencyProperty DownRepeatButtonStyleProperty =
+            DependencyProperty.Register(nameof(DownRepeatButtonStyle), typeof(Style), typeof(Spinner), new PropertyMetadata(null, OnDownButtonStyleChanged));
 
         #endregion
 
         #region Properties
 
+        /// <summary>
+        /// Gets/ sets the up button style.
+        /// </summary>
+        public Style UpRepeatButtonStyle
+        {
+            get { return (Style)GetValue(UpRepeatButtonStyleProperty); }
+            set { SetValue(UpRepeatButtonStyleProperty, value); }
+        }
 
+        /// <summary>
+        /// Gets/ sets the down button style.
+        /// </summary>
+        public Style DownRepeatButtonStyle
+        {
+            get { return (Style)GetValue(DownRepeatButtonStyleProperty); }
+            set { SetValue(DownRepeatButtonStyleProperty, value); }
+        }
 
         #endregion
 
@@ -44,17 +96,53 @@ namespace Summa.Wpf
         /// </summary>
         public override void OnApplyTemplate()
         {
+
             base.OnApplyTemplate();
 
-            UpButton.Click += (s, e) =>
-            {
-                RaiseSpin(SpinDirection.Up);
-            };
+            UpRepeatButtonStyle = UpRepeatButtonStyle ?? (Style)Resources["UpRepeatButtonStyle"];
+            DownRepeatButtonStyle = DownRepeatButtonStyle ?? (Style)Resources["DownRepeatButtonStyle"];
 
-            DownButton.Click += (s, e) =>
+            UpButton.Click += (s, e) => RaiseSpin(SpinDirection.Up);
+
+            DownButton.Click += (s, e) => RaiseSpin(SpinDirection.Down);
+
+        }
+
+        /// <summary>
+        /// Handles the <see cref="UpRepeatButtonStyle"/> changed event.
+        /// </summary>
+        /// <param name="sender"> Event sender. </param>
+        /// <param name="e"> Event info. </param>
+        public static void OnUpButtonStyleChanged(DependencyObject sender, DependencyPropertyChangedEventArgs e)
+        {
+
+            Spinner spinner = sender as Spinner;
+
+            if (sender == null)
             {
-                RaiseSpin(SpinDirection.Down);
-            };
+                return;
+            }
+
+            spinner.UpButton.Style = (Style)e.NewValue;
+
+        }
+
+        /// <summary>
+        /// Handles the <see cref="DownRepeatButtonStyle"/> changed event.
+        /// </summary>
+        /// <param name="sender"> Event sender. </param>
+        /// <param name="e"> Event info. </param>
+        public static void OnDownButtonStyleChanged(DependencyObject sender, DependencyPropertyChangedEventArgs e)
+        {
+
+            Spinner spinner = sender as Spinner;
+
+            if (sender == null)
+            {
+                return;
+            }
+
+            spinner.DownButton.Style = (Style)e.NewValue;
 
         }
 
@@ -64,9 +152,7 @@ namespace Summa.Wpf
 
         private void RaiseSpin(SpinDirection direction)
         {
-
-            Spin?.Invoke(this, new SpinEventArgs(direction));
-
+            RaiseEvent(new SpinEventArgs(SpinEvent, direction));
         }
 
         #endregion
@@ -74,27 +160,32 @@ namespace Summa.Wpf
     }
 
     /// <summary>
-    /// Defines the <see cref="Spinner"/> spin event args.
+    /// Defines the <see cref="Spinner.Spin"/> event handler.
     /// </summary>
-    public class SpinEventArgs : EventArgs
+    /// <param name="sender"> Event sender. </param>
+    /// <param name="e"> Event info. </param>
+    public delegate void SpinEventHandler(object sender, SpinEventArgs e);
+
+    /// <summary>
+    /// Defines the <see cref="Spinner.Spin"/> event info.
+    /// </summary>
+    public class SpinEventArgs : RoutedEventArgs
     {
 
         #region Properties
 
-        /// <summary>
-        /// Event spin direction.
-        /// </summary>
-        public SpinDirection Direction { get; }
+        public SpinDirection Direction { get; set; }
 
         #endregion
 
         #region Ctors
 
-        /// <summary>
-        /// Instantiates a new <see cref="SpinEventArgs"/> with the given direction.
-        /// </summary>
-        /// <param name="direction"> Spin direction. </param>
         public SpinEventArgs(SpinDirection direction)
+        {
+            Direction = direction;
+        }
+
+        public SpinEventArgs(RoutedEvent routedEvent, SpinDirection direction) : base(routedEvent)
         {
             Direction = direction;
         }
