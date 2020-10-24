@@ -18,6 +18,7 @@
            TargetType="{x:Type RepeatButton}">
 
         <Setter Property="Content" Value="{StaticResource UpArrowPath}"/>
+        <Setter Property="DockPanel.Dock" Value="Top" />
 
     </Style>
 
@@ -25,6 +26,7 @@
            TargetType="{x:Type RepeatButton}">
 
         <Setter Property="Content" Value="{StaticResource DownArrowPath}"/>
+        <Setter Property="DockPanel.Dock" Value="Bottom" />
 
     </Style>
 

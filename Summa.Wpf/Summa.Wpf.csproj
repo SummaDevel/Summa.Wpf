@@ -5,4 +5,8 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>C:\Users\fabio.DESKTOP-TDRVG7B\source\repos\Summa.Wpf\Summa.Wpf\Summa.Wpf.xml</DocumentationFile>
+  </PropertyGroup>
+
 </Project>

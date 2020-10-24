@@ -19,12 +19,10 @@
                     <DockPanel>
                         
                         <RepeatButton x:Name="PART_UpRepeatButton"
-                                      Style="{StaticResource UpRepeatButtonStyle}"
-                                      DockPanel.Dock="Top"/>
+                                      Style="{StaticResource UpRepeatButtonStyle}"/>
 
                         <RepeatButton x:Name="PART_DownRepeatButton"
-                                      Style="{StaticResource DownRepeatButtonStyle}"
-                                      DockPanel.Dock="Bottom"/>
+                                      Style="{StaticResource DownRepeatButtonStyle}"/>
 
                     </DockPanel>                        
 

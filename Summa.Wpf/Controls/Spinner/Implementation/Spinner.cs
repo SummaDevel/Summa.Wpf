@@ -115,8 +115,15 @@ namespace Summa.Wpf
             UpButton = (RepeatButton)GetTemplateChild("PART_UpRepeatButton");
             DownButton = (RepeatButton)GetTemplateChild("PART_DownRepeatButton");
 
-            UpRepeatButtonStyle = UpRepeatButtonStyle;
-            DownRepeatButtonStyle = DownRepeatButtonStyle;
+            if (UpRepeatButtonStyle != null)
+            {
+                UpRepeatButtonStyle = UpRepeatButtonStyle;
+            }
+
+            if (DownRepeatButtonStyle != null)
+            {
+                DownRepeatButtonStyle = DownRepeatButtonStyle;
+            }
 
             UpButton.Click += (s, e) => RaiseSpin(SpinDirection.Up);
 
@@ -134,8 +141,7 @@ namespace Summa.Wpf
 
             Spinner spinner = sender as Spinner;
 
-            if (sender == null ||
-                e.NewValue == null)
+            if (sender == null)
             {
                 return;
             }
@@ -154,8 +160,7 @@ namespace Summa.Wpf
 
             Spinner spinner = sender as Spinner;
 
-            if (sender == null ||
-                e.NewValue == null)
+            if (sender == null)
             {
                 return;
             }
@@ -166,9 +171,13 @@ namespace Summa.Wpf
 
         #endregion
 
-        #region Private methods
+        #region Protected methods
 
-        private void RaiseSpin(SpinDirection direction)
+        /// <summary>
+        /// Raises a new <see cref="Spin"/> routed event.
+        /// </summary>
+        /// <param name="direction"> Spin direction. </param>
+        protected void RaiseSpin(SpinDirection direction)
         {
             RaiseEvent(new SpinEventArgs(SpinEvent, direction));
         }
@@ -192,17 +201,29 @@ namespace Summa.Wpf
 
         #region Properties
 
+        /// <summary>
+        /// Spin direction.
+        /// </summary>
         public SpinDirection Direction { get; set; }
 
         #endregion
 
         #region Ctors
 
+        /// <summary>
+        /// Instantiates a new <see cref="SpinEventArgs"/> with the given direction.
+        /// </summary>
+        /// <param name="direction"></param>
         public SpinEventArgs(SpinDirection direction)
         {
             Direction = direction;
         }
 
+        /// <summary>
+        /// Instantiates a new <see cref="SpinEventArgs"/> with the given routed event and direction. 
+        /// </summary>
+        /// <param name="routedEvent"> Routed event. </param>
+        /// <param name="direction"> Spin direction. </param>
         public SpinEventArgs(RoutedEvent routedEvent, SpinDirection direction) : base(routedEvent)
         {
             Direction = direction;
@@ -226,4 +247,5 @@ namespace Summa.Wpf
         /// </summary>
         Down
     }
+
 }

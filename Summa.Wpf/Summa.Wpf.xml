@@ -1,0 +1,166 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Summa.Wpf</name>
+    </assembly>
+    <members>
+        <member name="T:Summa.Wpf.Spinner">
+            <summary>
+            Defines a spinner.
+            </summary>
+        </member>
+        <member name="F:Summa.Wpf.Spinner.SpinEvent">
+            <summary>
+            Defines the <see cref="E:Summa.Wpf.Spinner.Spin"/> routed event.
+            </summary>
+        </member>
+        <member name="E:Summa.Wpf.Spinner.Spin">
+            <summary>
+            Fired each time the spinner spins.
+            </summary>
+        </member>
+        <member name="F:Summa.Wpf.Spinner.UpRepeatButtonStyleProperty">
+            <summary>
+            Defines the <see cref="P:Summa.Wpf.Spinner.UpRepeatButtonStyle"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:Summa.Wpf.Spinner.DownRepeatButtonStyleProperty">
+            <summary>
+            Defines the <see cref="P:Summa.Wpf.Spinner.DownRepeatButtonStyle"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:Summa.Wpf.Spinner.UpRepeatButtonStyle">
+            <summary>
+            Gets/ sets the up button style.
+            </summary>
+        </member>
+        <member name="P:Summa.Wpf.Spinner.DownRepeatButtonStyle">
+            <summary>
+            Gets/ sets the down button style.
+            </summary>
+        </member>
+        <member name="P:Summa.Wpf.Spinner.UpButton">
+            <summary>
+            Gets the up button.
+            </summary>
+        </member>
+        <member name="P:Summa.Wpf.Spinner.DownButton">
+            <summary>
+            Gets the down button.
+            </summary>
+        </member>
+        <member name="M:Summa.Wpf.Spinner.#ctor">
+            <summary>
+            Instantiates a new <see cref="T:Summa.Wpf.Spinner"/>.
+            </summary>
+        </member>
+        <member name="M:Summa.Wpf.Spinner.OnApplyTemplate">
+            <summary>
+            Called when the content template has to be applied.
+            </summary>
+        </member>
+        <member name="M:Summa.Wpf.Spinner.OnUpButtonStyleChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Handles the <see cref="P:Summa.Wpf.Spinner.UpRepeatButtonStyle"/> changed event.
+            </summary>
+            <param name="sender"> Event sender. </param>
+            <param name="e"> Event info. </param>
+        </member>
+        <member name="M:Summa.Wpf.Spinner.OnDownButtonStyleChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Handles the <see cref="P:Summa.Wpf.Spinner.DownRepeatButtonStyle"/> changed event.
+            </summary>
+            <param name="sender"> Event sender. </param>
+            <param name="e"> Event info. </param>
+        </member>
+        <member name="M:Summa.Wpf.Spinner.RaiseSpin(Summa.Wpf.SpinDirection)">
+            <summary>
+            Raises a new <see cref="E:Summa.Wpf.Spinner.Spin"/> routed event.
+            </summary>
+            <param name="direction"> Spin direction. </param>
+        </member>
+        <member name="T:Summa.Wpf.SpinEventHandler">
+            <summary>
+            Defines the <see cref="E:Summa.Wpf.Spinner.Spin"/> event handler.
+            </summary>
+            <param name="sender"> Event sender. </param>
+            <param name="e"> Event info. </param>
+        </member>
+        <member name="T:Summa.Wpf.SpinEventArgs">
+            <summary>
+            Defines the <see cref="E:Summa.Wpf.Spinner.Spin"/> event info.
+            </summary>
+        </member>
+        <member name="P:Summa.Wpf.SpinEventArgs.Direction">
+            <summary>
+            Spin direction.
+            </summary>
+        </member>
+        <member name="M:Summa.Wpf.SpinEventArgs.#ctor(Summa.Wpf.SpinDirection)">
+            <summary>
+            Instantiates a new <see cref="T:Summa.Wpf.SpinEventArgs"/> with the given direction.
+            </summary>
+            <param name="direction"></param>
+        </member>
+        <member name="M:Summa.Wpf.SpinEventArgs.#ctor(System.Windows.RoutedEvent,Summa.Wpf.SpinDirection)">
+            <summary>
+            Instantiates a new <see cref="T:Summa.Wpf.SpinEventArgs"/> with the given routed event and direction. 
+            </summary>
+            <param name="routedEvent"> Routed event. </param>
+            <param name="direction"> Spin direction. </param>
+        </member>
+        <member name="T:Summa.Wpf.SpinDirection">
+            <summary>
+            Defines the <see cref="T:Summa.Wpf.Spinner"/> spin direction.
+            </summary>
+        </member>
+        <member name="F:Summa.Wpf.SpinDirection.Up">
+            <summary>
+            Up.
+            </summary>
+        </member>
+        <member name="F:Summa.Wpf.SpinDirection.Down">
+            <summary>
+            Down.
+            </summary>
+        </member>
+        <member name="T:RoutedEventHandler`1">
+            <summary>
+            Defines a typed routed event args.
+            </summary>
+            <typeparam name="T"> Args type. </typeparam>
+            <param name="sender"> Event sender. </param>
+            <param name="e"> Event info. </param>
+        </member>
+        <member name="T:XamlGeneratedNamespace.GeneratedInternalTypeHelper">
+            <summary>
+            GeneratedInternalTypeHelper
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateInstance(System.Type,System.Globalization.CultureInfo)">
+            <summary>
+            CreateInstance
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.GetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            GetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.SetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            SetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateDelegate(System.Type,System.Object,System.String)">
+            <summary>
+            CreateDelegate
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.AddEventHandler(System.Reflection.EventInfo,System.Object,System.Delegate)">
+            <summary>
+            AddEventHandler
+            </summary>
+        </member>
+    </members>
+</doc>
