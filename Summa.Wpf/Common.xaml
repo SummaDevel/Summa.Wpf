@@ -14,4 +14,18 @@
           Fill="Black"
           Data="{StaticResource DownArrowGeometry}"/>
 
+    <Style x:Key="UpRepeatButtonStyle"
+           TargetType="{x:Type RepeatButton}">
+
+        <Setter Property="Content" Value="{StaticResource UpArrowPath}"/>
+
+    </Style>
+
+    <Style x:Key="DownRepeatButtonStyle"
+           TargetType="{x:Type RepeatButton}">
+
+        <Setter Property="Content" Value="{StaticResource DownArrowPath}"/>
+
+    </Style>
+
 </ResourceDictionary>

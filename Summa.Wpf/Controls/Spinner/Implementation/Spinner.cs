@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 
 namespace Summa.Wpf
 {
@@ -7,7 +8,9 @@ namespace Summa.Wpf
     /// <summary>
     /// Defines a spinner.
     /// </summary>
-    public partial class Spinner : UserControl
+    [TemplatePart(Name = "PART_UpRepeatButton")]
+    [TemplatePart(Name = "PART_DownRepeatButton")]
+    public class Spinner : Control
     {
 
         #region Routed events
@@ -75,6 +78,16 @@ namespace Summa.Wpf
             set { SetValue(DownRepeatButtonStyleProperty, value); }
         }
 
+        /// <summary>
+        /// Gets the up button.
+        /// </summary>
+        protected RepeatButton UpButton { get; private set; }
+
+        /// <summary>
+        /// Gets the down button.
+        /// </summary>
+        protected RepeatButton DownButton { get; private set; }
+
         #endregion
 
         #region Ctors
@@ -84,7 +97,7 @@ namespace Summa.Wpf
         /// </summary>
         public Spinner()
         {
-            InitializeComponent();
+            DefaultStyleKeyProperty.OverrideMetadata(typeof(Spinner), new FrameworkPropertyMetadata(typeof(Spinner)));
         }
 
         #endregion
@@ -99,8 +112,11 @@ namespace Summa.Wpf
 
             base.OnApplyTemplate();
 
-            UpRepeatButtonStyle = UpRepeatButtonStyle ?? (Style)Resources["UpRepeatButtonStyle"];
-            DownRepeatButtonStyle = DownRepeatButtonStyle ?? (Style)Resources["DownRepeatButtonStyle"];
+            UpButton = (RepeatButton)GetTemplateChild("PART_UpRepeatButton");
+            DownButton = (RepeatButton)GetTemplateChild("PART_DownRepeatButton");
+
+            UpRepeatButtonStyle = UpRepeatButtonStyle;
+            DownRepeatButtonStyle = DownRepeatButtonStyle;
 
             UpButton.Click += (s, e) => RaiseSpin(SpinDirection.Up);
 
@@ -118,7 +134,8 @@ namespace Summa.Wpf
 
             Spinner spinner = sender as Spinner;
 
-            if (sender == null)
+            if (sender == null ||
+                e.NewValue == null)
             {
                 return;
             }
@@ -137,7 +154,8 @@ namespace Summa.Wpf
 
             Spinner spinner = sender as Spinner;
 
-            if (sender == null)
+            if (sender == null ||
+                e.NewValue == null)
             {
                 return;
             }
@@ -208,5 +226,4 @@ namespace Summa.Wpf
         /// </summary>
         Down
     }
-
 }
