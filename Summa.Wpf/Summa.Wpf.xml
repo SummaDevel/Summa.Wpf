@@ -124,6 +124,92 @@
             Down.
             </summary>
         </member>
+        <member name="T:Summa.Wpf.BoolInverter">
+            <summary>
+            Defines a bool inverter converter.
+            </summary>
+        </member>
+        <member name="M:Summa.Wpf.BoolInverter.#ctor">
+            <summary>
+            Instantiates a new <see cref="T:Summa.Wpf.BoolInverter"/>.
+            </summary>
+        </member>
+        <member name="M:Summa.Wpf.BoolInverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Converts the value.
+            </summary>
+            <param name="value"> Conversion value. </param>
+            <param name="targetType"> Binding target type. </param>
+            <param name="parameter"> Conversion parameter. </param>
+            <param name="culture"> Conversion culture. </param>
+            <returns> The converted value, otherwise null. </returns>
+        </member>
+        <member name="M:Summa.Wpf.BoolInverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Converts the value back.
+            </summary>
+            <param name="value"> Conversion value. </param>
+            <param name="targetType"> Binding target type. </param>
+            <param name="parameter"> Conversion parameter. </param>
+            <param name="culture"> Conversion culture. </param>
+            <returns> The converted value, otherwise null. </returns>
+        </member>
+        <member name="T:Summa.Wpf.BoolToVisibility">
+            <summary>
+            Defines a bool to visibility converter.
+            </summary>
+        </member>
+        <member name="M:Summa.Wpf.BoolToVisibility.#ctor">
+            <summary>
+            Instantiates a new <see cref="T:Summa.Wpf.BoolToVisibility"/>.
+            </summary>
+        </member>
+        <member name="M:Summa.Wpf.BoolToVisibility.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Converts the value.
+            </summary>
+            <param name="value"> Conversion value. </param>
+            <param name="targetType"> Binding target type. </param>
+            <param name="parameter"> Conversion parameter. </param>
+            <param name="culture"> Conversion culture. </param>
+            <returns> The converted value, otherwise null. </returns>
+        </member>
+        <member name="M:Summa.Wpf.BoolToVisibility.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Converts the value back.
+            </summary>
+            <param name="value"> Conversion value. </param>
+            <param name="targetType"> Binding target type. </param>
+            <param name="parameter"> Conversion parameter. </param>
+            <param name="culture"> Conversion culture. </param>
+            <returns> The converted value, otherwise null. </returns>
+        </member>
+        <member name="T:Summa.Wpf.ProxyContext">
+            <summary>
+            Defines a proxy context, which contains wpf shareable data.
+            </summary>
+        </member>
+        <member name="F:Summa.Wpf.ProxyContext.DataProperty">
+            <summary>
+            Defines the <see cref="P:Summa.Wpf.ProxyContext.Data"/> dependency property.
+            </summary>
+        </member>
+        <member name="P:Summa.Wpf.ProxyContext.Data">
+            <summary>
+            Defines the proxy data.
+            </summary>
+        </member>
+        <member name="M:Summa.Wpf.ProxyContext.#ctor">
+            <summary>
+            Instantiates a new <see cref="T:Summa.Wpf.ProxyContext"/>.
+            </summary>
+        </member>
+        <member name="M:Summa.Wpf.ProxyContext.CreateInstanceCore">
+            <summary>
+            Returns a new instance of this freezable.
+            </summary>
+            <returns> The instantiated freezable. </returns>
+        </member>
         <member name="T:RoutedEventHandler`1">
             <summary>
             Defines a typed routed event args.

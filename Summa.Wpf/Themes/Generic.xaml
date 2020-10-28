@@ -5,5 +5,5 @@
         <ResourceDictionary Source="/Summa.Wpf;component/Controls/Spinner/Themes/Generic.xaml"/>
 
     </ResourceDictionary.MergedDictionaries>
-    
+   
 </ResourceDictionary>
