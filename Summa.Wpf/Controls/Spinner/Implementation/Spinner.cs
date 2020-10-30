@@ -131,12 +131,24 @@ namespace Summa.Wpf
 
         }
 
+        #endregion
+
+        #region Protected methods
+
         /// <summary>
-        /// Handles the <see cref="UpRepeatButtonStyle"/> changed event.
+        /// Raises a new <see cref="Spin"/> routed event.
         /// </summary>
-        /// <param name="sender"> Event sender. </param>
-        /// <param name="e"> Event info. </param>
-        public static void OnUpButtonStyleChanged(DependencyObject sender, DependencyPropertyChangedEventArgs e)
+        /// <param name="direction"> Spin direction. </param>
+        protected void RaiseSpin(SpinDirection direction)
+        {
+            RaiseEvent(new SpinEventArgs(SpinEvent, direction));
+        }
+
+        #endregion
+
+        #region Private methods
+
+        private static void OnUpButtonStyleChanged(DependencyObject sender, DependencyPropertyChangedEventArgs e)
         {
 
             Spinner spinner = sender as Spinner;
@@ -150,12 +162,7 @@ namespace Summa.Wpf
 
         }
 
-        /// <summary>
-        /// Handles the <see cref="DownRepeatButtonStyle"/> changed event.
-        /// </summary>
-        /// <param name="sender"> Event sender. </param>
-        /// <param name="e"> Event info. </param>
-        public static void OnDownButtonStyleChanged(DependencyObject sender, DependencyPropertyChangedEventArgs e)
+        private static void OnDownButtonStyleChanged(DependencyObject sender, DependencyPropertyChangedEventArgs e)
         {
 
             Spinner spinner = sender as Spinner;
@@ -167,19 +174,6 @@ namespace Summa.Wpf
 
             spinner.DownButton.Style = (Style)e.NewValue;
 
-        }
-
-        #endregion
-
-        #region Protected methods
-
-        /// <summary>
-        /// Raises a new <see cref="Spin"/> routed event.
-        /// </summary>
-        /// <param name="direction"> Spin direction. </param>
-        protected void RaiseSpin(SpinDirection direction)
-        {
-            RaiseEvent(new SpinEventArgs(SpinEvent, direction));
         }
 
         #endregion
