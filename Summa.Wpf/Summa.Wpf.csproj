@@ -49,6 +49,7 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\Primitives\ValueInput.cs" />
     <Compile Include="Controls\Spinner\Implementation\Spinner.cs" />
     <Compile Include="Converters\BoolInverter.cs" />
     <Compile Include="Converters\BoolToVisibility.cs" />
