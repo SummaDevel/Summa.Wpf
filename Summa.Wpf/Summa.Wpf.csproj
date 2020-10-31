@@ -49,10 +49,12 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Collections\ItemCollection.cs" />
     <Compile Include="Controls\Primitives\ValueInput.cs" />
     <Compile Include="Controls\Spinner\Implementation\Spinner.cs" />
     <Compile Include="Converters\BoolInverter.cs" />
     <Compile Include="Converters\BoolToVisibility.cs" />
+    <Compile Include="Data\Item.cs" />
     <Compile Include="Data\ProxyContext.cs" />
     <Compile Include="Delegates.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -68,6 +70,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Sources\ColorSource.cs" />
+    <Compile Include="Sources\ItemsSource.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
