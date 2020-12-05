@@ -12,6 +12,15 @@ namespace Summa.Wpf
     public class BoolToVisibility : IValueConverter
     {
 
+        #region Properties
+
+        /// <summary>
+        /// Decide whether to convert the visibility value.
+        /// </summary>
+        public bool Invert { get; set; }
+
+        #endregion
+
         #region Ctors
 
         /// <summary>
@@ -24,20 +33,19 @@ namespace Summa.Wpf
 
         #region Public methods
 
-        /// <summary>
-        /// Converts the value.
-        /// </summary>
-        /// <param name="value"> Conversion value. </param>
-        /// <param name="targetType"> Binding target type. </param>
-        /// <param name="parameter"> Conversion parameter. </param>
-        /// <param name="culture"> Conversion culture. </param>
-        /// <returns> The converted value, otherwise null. </returns>
+        /// <inheritdoc/>
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
 
-            if (value is bool)
+            if (value is bool boolean)
             {
-                if ((bool)value)
+
+                if (Invert)
+                {
+                    boolean = !boolean;
+                }
+
+                if (boolean)
                 {
                     return Visibility.Visible;
                 }
@@ -46,39 +54,31 @@ namespace Summa.Wpf
 
             }
 
-            return null;
+            return DependencyProperty.UnsetValue;
 
         }
 
-        /// <summary>
-        /// Converts the value back.
-        /// </summary>
-        /// <param name="value"> Conversion value. </param>
-        /// <param name="targetType"> Binding target type. </param>
-        /// <param name="parameter"> Conversion parameter. </param>
-        /// <param name="culture"> Conversion culture. </param>
-        /// <returns> The converted value, otherwise null. </returns>
+        /// <inheritdoc/>
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
 
-            if (value is Visibility)
+            if (value is Visibility visibility)
             {
-
-                Visibility visibility = (Visibility)value;
 
                 switch (visibility)
                 {
                     case Visibility.Visible:
-                        return true;
+                        return Invert ? false : true;
                     case Visibility.Collapsed:
-                        return false;
+                        return Invert ? true : false;
+                    case Visibility.Hidden:
                     default:
                         break;
                 }
 
             }
 
-            return null;
+            return DependencyProperty.UnsetValue;
 
         }
 

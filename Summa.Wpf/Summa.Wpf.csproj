@@ -50,13 +50,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Collections\ItemCollection.cs" />
-    <Compile Include="Controls\Primitives\ValueInput.cs" />
-    <Compile Include="Controls\Spinner\Implementation\Spinner.cs" />
     <Compile Include="Converters\BoolInverter.cs" />
     <Compile Include="Converters\BoolToVisibility.cs" />
+    <Compile Include="Converters\SolidBrushToColor.cs" />
     <Compile Include="Data\Item.cs" />
     <Compile Include="Data\ProxyContext.cs" />
-    <Compile Include="Delegates.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -81,20 +79,6 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Page Include="Common.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Controls\Spinner\Themes\Generic.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Themes\Generic.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

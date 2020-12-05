@@ -3,6 +3,7 @@ using System.Windows.Media;
 
 namespace Summa.Wpf
 {
+
     /// <summary>
     /// Defines a <see cref="SolidColorBrush"/> source.
     /// </summary>

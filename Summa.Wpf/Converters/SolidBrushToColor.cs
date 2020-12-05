@@ -2,22 +2,23 @@
 using System.Globalization;
 using System.Windows;
 using System.Windows.Data;
+using System.Windows.Media;
 
-namespace Summa.Wpf
+namespace Summa.Wpf.Converters
 {
 
     /// <summary>
-    /// Defines a bool inverter converter.
+    /// Defines the <see cref="SolidColorBrush"/> to <see cref="Color"/> converter.
     /// </summary>
-    public class BoolInverter : IValueConverter
+    public class SolidBrushToColor : IValueConverter
     {
 
         #region Ctors
 
         /// <summary>
-        /// Instantiates a new <see cref="BoolInverter"/>.
+        /// Instantiates a new <see cref="SolidBrushToColor"/>.
         /// </summary>
-        public BoolInverter()
+        public SolidBrushToColor()
         { }
 
         #endregion
@@ -28,9 +29,9 @@ namespace Summa.Wpf
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
 
-            if (value is bool boolean)
+            if (value is SolidColorBrush brush)
             {
-                return !boolean;
+                return brush.Color;
             }
 
             return DependencyProperty.UnsetValue;
@@ -41,9 +42,9 @@ namespace Summa.Wpf
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
 
-            if (value is bool boolean)
+            if (value is Color color)
             {
-                return !(boolean);
+                return new SolidColorBrush(color);
             }
 
             return DependencyProperty.UnsetValue;
@@ -53,5 +54,4 @@ namespace Summa.Wpf
         #endregion
 
     }
-
 }
