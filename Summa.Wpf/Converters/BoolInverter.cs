@@ -9,7 +9,7 @@ namespace Summa.Wpf
     /// <summary>
     /// Defines a bool inverter converter.
     /// </summary>
-    public class BoolInverter : IValueConverter
+    public class BoolInverter : ValueConverter
     {
 
         #region Ctors
@@ -25,7 +25,7 @@ namespace Summa.Wpf
         #region Public methods
 
         /// <inheritdoc/>
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
 
             if (value is bool boolean)
@@ -38,7 +38,7 @@ namespace Summa.Wpf
         }
 
         /// <inheritdoc/>
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        public override object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
 
             if (value is bool boolean)

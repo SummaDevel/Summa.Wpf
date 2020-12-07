@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Globalization;
 using System.Windows;
-using System.Windows.Data;
 using System.Windows.Media;
 
 namespace Summa.Wpf.Converters
@@ -10,7 +9,7 @@ namespace Summa.Wpf.Converters
     /// <summary>
     /// Defines the <see cref="SolidColorBrush"/> to <see cref="Color"/> converter.
     /// </summary>
-    public class SolidBrushToColor : IValueConverter
+    public class SolidBrushToColor : ValueConverter
     {
 
         #region Ctors
@@ -26,7 +25,7 @@ namespace Summa.Wpf.Converters
         #region Public methods
 
         /// <inheritdoc/>
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
 
             if (value is SolidColorBrush brush)
@@ -39,7 +38,7 @@ namespace Summa.Wpf.Converters
         }
 
         /// <inheritdoc/>
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        public override object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
 
             if (value is Color color)

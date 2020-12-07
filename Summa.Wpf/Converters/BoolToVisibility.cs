@@ -9,7 +9,7 @@ namespace Summa.Wpf
     /// <summary>
     /// Defines a bool to visibility converter.
     /// </summary>
-    public class BoolToVisibility : IValueConverter
+    public class BoolToVisibility : ValueConverter
     {
 
         #region Properties
@@ -34,7 +34,7 @@ namespace Summa.Wpf
         #region Public methods
 
         /// <inheritdoc/>
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
 
             if (value is bool boolean)
@@ -59,7 +59,7 @@ namespace Summa.Wpf
         }
 
         /// <inheritdoc/>
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        public override object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
 
             if (value is Visibility visibility)

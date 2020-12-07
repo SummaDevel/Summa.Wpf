@@ -53,8 +53,13 @@
     <Compile Include="Converters\BoolInverter.cs" />
     <Compile Include="Converters\BoolToVisibility.cs" />
     <Compile Include="Converters\SolidBrushToColor.cs" />
+    <Compile Include="Converters\ValueConverter.cs" />
+    <Compile Include="Data\Condition.cs" />
     <Compile Include="Data\Item.cs" />
+    <Compile Include="Data\NotifierBase.cs" />
     <Compile Include="Data\ProxyContext.cs" />
+    <Compile Include="Input\ActionCommand.cs" />
+    <Compile Include="Input\RelayCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

@@ -44,10 +44,7 @@ namespace Summa.Wpf
 
         #region Protected methods
 
-        /// <summary>
-        /// Returns a new instance of this freezable.
-        /// </summary>
-        /// <returns> The instantiated freezable. </returns>
+        /// <inheritdoc/>
         protected override Freezable CreateInstanceCore()
         {
             return new ProxyContext();

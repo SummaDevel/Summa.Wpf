@@ -4,20 +4,35 @@
     /// <summary>
     /// Defines an item.
     /// </summary>
-    public class Item
+    public class Item : NotifierBase
     {
+
+        #region Fields
+
+        private string _displayName;
+        private object _value;
+
+        #endregion
 
         #region Properties
 
         /// <summary>
         /// Item display name.
         /// </summary>
-        public string DisplayName { get; set; }
+        public string DisplayName
+        {
+            get => _displayName;
+            set => RaiseChangedIfNotEqual(ref _displayName, value);
+        }
 
         /// <summary>
         /// Item value.
         /// </summary>
-        public object Value { get; set; }
+        public object Value
+        {
+            get => _value;
+            set => RaiseChangedIfNotEqual(ref _value, value);
+        }
 
         #endregion
 
