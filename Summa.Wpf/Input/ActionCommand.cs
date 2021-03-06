@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Summa.Data;
+using System;
 using System.Windows.Input;
 
 namespace Summa.Wpf.Input

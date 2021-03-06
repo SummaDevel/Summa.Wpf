@@ -1,10 +1,12 @@
-﻿namespace Summa.Wpf
+﻿using Summa.Collections.ObjectModel;
+
+namespace Summa.Wpf
 {
 
     /// <summary>
     /// Defines an items source.
     /// </summary>
-    public abstract class ItemsSource : ItemCollection
+    public abstract class ItemsSource : ObservableItemCollection
     {
 
         #region Ctors
