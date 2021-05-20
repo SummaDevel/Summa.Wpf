@@ -54,6 +54,8 @@
   <ItemGroup>
     <Compile Include="Converters\BoolInverter.cs" />
     <Compile Include="Converters\BoolToVisibility.cs" />
+    <Compile Include="Converters\UpperInvariant.cs" />
+    <Compile Include="Converters\NotNullToVisibility.cs" />
     <Compile Include="Converters\SolidBrushToColor.cs" />
     <Compile Include="Converters\ValueConverter.cs" />
     <Compile Include="Data\ProxyContext.cs" />
