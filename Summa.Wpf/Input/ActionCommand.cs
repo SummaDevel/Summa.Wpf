@@ -1,5 +1,4 @@
-﻿using Summa.Data;
-using System;
+﻿using System;
 using System.Windows.Input;
 
 namespace Summa.Wpf.Input
@@ -14,7 +13,7 @@ namespace Summa.Wpf.Input
         #region Fields
 
         private readonly Action _execute;
-        private readonly Condition _canExecute;
+        private readonly Func<bool> _canExecute;
 
         #endregion
 
@@ -44,7 +43,7 @@ namespace Summa.Wpf.Input
         /// <param name="execute"> Action to execute. </param>
         /// <param name="canExecute"> Defines the method that determines whether the command can be executed in the current state. </param>
         /// <exception cref="ArgumentNullException"> Given <paramref name="execute"/> is <c>Null</c>. </exception>
-        public ActionCommand(Action execute, Condition canExecute)
+        public ActionCommand(Action execute, Func<bool> canExecute)
         {
 
             _execute = execute ?? throw new ArgumentNullException(nameof(execute));

@@ -1,4 +1,4 @@
-﻿using Summa.Collections.ObjectModel;
+﻿using Summa.Wpf.Collections.ObjectModel;
 
 namespace Summa.Wpf
 {
